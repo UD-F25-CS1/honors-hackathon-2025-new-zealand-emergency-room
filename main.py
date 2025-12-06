@@ -1,7 +1,7 @@
 from bakery import assert_equal
 from drafter import *
 from dataclasses import dataclass
-from random import randint
+import random
 
 hide_debug_information()
 # set_website_framed(False)

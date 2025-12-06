@@ -7,9 +7,9 @@ from random import randint
 # set_website_framed(False)
 set_website_title("Your Drafter Website")
 set_site_information(
-    "author",
+    "Authors: Nelson Zheng and Emily Roth",
     """
-Your description can go here.
+A free-to-use flashcard-making site with absolutely zero ads!
 """,
     [],
     [],

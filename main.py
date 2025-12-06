@@ -17,9 +17,6 @@ Your description can go here.
     [],
 )
 
-from bakery import assert_equal
-from drafter import *
-from dataclasses import dataclass
 
 @dataclass
 class Card:

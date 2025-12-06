@@ -35,7 +35,7 @@ class State:
 def index(state: State):
     card_check = False
     return Page(state, content=[
-        Header("Study"),
+        Header("/Cards"),
         Button(text="Create Cards", url="/create_cards_page", arguments=Argument('check_card', card_check)),
         Button(text="View Stack", url="/view_stack"),
         Button(text="Quiz Yourself", url="/quiz_page")

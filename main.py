@@ -3,7 +3,7 @@ from drafter import *
 from dataclasses import dataclass
 from random import randint
 
-hide_debug_information(True)
+hide_debug_information()
 # set_website_framed(False)
 set_website_title("Your Drafter Website")
 set_site_information(

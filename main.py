@@ -80,16 +80,25 @@ def view_stack(state: State) -> Page:
 
 def card_viewer(cards: list[Card]) -> PageContent:
     all_cards = []
-    for i, card in enumerate(cards):
+    for card in cards:
+        card_id = Argument("card_id", card.card_id)
         all_cards.append(
             [Div(
                 Row("Front Side:", Text(card.front)),
                 LineBreak(),
                 Row("Back Side: ", Text(card.back)),
                 ),
+             Button(text="Remove Card", url="/remove_card", arguments=card_id)
              ]
             )
     return Table(all_cards)
+
+@route
+def remove_card(state: State, card_id: int) -> Page:
+    for i, card in enumerate(state.cards):
+        if card_id == card.card_id:
+            state.cards.pop(i)
+    return view_stack(state)
 
 @route
 def quiz_page(state: State) -> Page:

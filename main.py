@@ -31,14 +31,26 @@ class State:
     current_card: int
     randomized: bool
 
+STYLE = """
+<style>
+    .heading {
+        color: midnightblue;
+        font-family: "Trebuchet MS", sans-serif;
+        font-weight: 900;
+        font-size: 60px;
+    }
+</style>
+"""
+
 @route
 def index(state: State):
     card_check = False
     return Page(state, content=[
-        Header("/Cards"),
-        Button(text="Create Cards", url="/create_cards_page", arguments=Argument('check_card', card_check)),
-        Button(text="View Stack", url="/view_stack"),
-        Button(text="Quiz Yourself", url="/quiz_page")
+        STYLE,
+        Text("/Cards", classes="heading"),
+        Row(Button(text="Create Cards", url="/create_cards_page", arguments=Argument('check_card', card_check))),
+        Row(Button(text="View Stack", url="/view_stack")),
+        Row(Button(text="Quiz Yourself", url="/quiz_page"))
         ])
 
 @route

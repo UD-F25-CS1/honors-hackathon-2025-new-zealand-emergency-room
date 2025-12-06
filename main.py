@@ -17,13 +17,36 @@ Your description can go here.
     [],
 )
 
+from bakery import assert_equal
+from drafter import *
+from dataclasses import dataclass
+
+@dataclass
+class Card:
+    front: str
+    back: str
+
 @dataclass
 class State:
-    pass
+    cards: list[Card]
+    
+@route
+def index(state: State):
+    return Page(state, content=[
+        Header("Study"),
+        Button(text="Create Cards", url="/create_cards"),
+        Button(text="Quiz Yourself", url="/quiz_page"),
+        ])
+        
+@route
+def create_cards(state: State) -> Page:
+    return Page(state, content=[
+        ])
 
 @route
-def index(state: State) -> Page:
-    return Page(state, ["Hello ___!"])
+def quiz_page(state: State) -> Page:
+    return Page(state, content=[
+        ])
 
-
-start_server(State())
+test_state = State([])
+start_server(test_state)
